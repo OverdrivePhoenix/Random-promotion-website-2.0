@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>overdr1ve.phoen1x | Portfolio</title>
 <style>
-  /* Base Reset & Variables */
   :root {
     --bg-color: #121212;
     --text-color: #ffffff;
-    --accent-color: #00ffff; /* Solid Cyan */
+    --accent-color: #00ffff; 
     --card-bg: #1e1e1e;
     --border-color: #333333;
   }
@@ -17,7 +16,7 @@
   body.light-mode {
     --bg-color: #f4f4f9;
     --text-color: #1a1a1a;
-    --accent-color: #00cccc; /* Slightly darker cyan for readability in light mode */
+    --accent-color: #00cccc;
     --card-bg: #ffffff;
     --border-color: #cccccc;
   }
@@ -31,8 +30,6 @@
     box-sizing: border-box;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-
-  /* Typography */
   h1, h2, h3 {
     font-family: Impact, sans-serif;
     letter-spacing: 1px;
@@ -45,15 +42,11 @@
     color: var(--text-color);
     opacity: 0.8;
   }
-
-  /* Layout Container */
   .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 60px 20px;
   }
-
-  /* Theme Toggle */
   .theme-toggle {
     position: fixed;
     top: 20px;
@@ -76,8 +69,6 @@
     background: var(--text-color);
     color: var(--bg-color);
   }
-
-  /* Header Section */
   .header {
     display: flex;
     flex-direction: column;
@@ -93,7 +84,7 @@
     object-fit: cover;
     margin-bottom: 20px;
     border: 4px solid var(--accent-color);
-    filter: grayscale(100%); /* Adds a professional portfolio look */
+    filter: grayscale(100%); 
     transition: filter 0.3s ease;
   }
 
@@ -111,8 +102,6 @@
     max-width: 600px;
     margin-bottom: 25px;
   }
-
-  /* Flat Button Design */
   .btn {
     display: inline-block;
     background-color: var(--accent-color);
@@ -129,11 +118,9 @@
   .btn:hover {
     background-color: transparent;
     color: var(--accent-color);
-    box-shadow: 6px 6px 0px var(--accent-color); /* Solid shadow, no gradient */
+    box-shadow: 6px 6px 0px var(--accent-color); 
     transform: translate(-4px, -4px);
   }
-
-  /* Portfolio Grid */
   .section-title {
     font-size: 2.5rem;
     margin-bottom: 30px;
@@ -174,8 +161,6 @@
     margin-bottom: 15px;
     display: block;
   }
-
-  /* Skills Summary List */
   .skills-list {
     list-style: none;
     padding: 0;
@@ -206,41 +191,30 @@
   <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">☀️</button>
   
   <div class="container">
-    <!-- Header Area -->
     <header class="header">
       <img src="603117003_17899087137357240_5576847413424402980_n.jpg" alt="Profile Picture" class="profile-pic">
       <h1>overdr1ve.phoen1x</h1>
       <p>Showcasing cinematic edits, visual effects, and high-quality motion graphics, alongside full-stack technical projects.</p>
       <a href="https://www.instagram.com/overdr1ve_phoen1x/" class="btn">View Instagram</a>
     </header>
-
-    <!-- Portfolio Grid Area -->
     <section>
       <h2 class="section-title">Selected Works</h2>
       <div class="portfolio-grid">
-        
-        <!-- Project 1 -->
         <div class="card">
           <span class="card-category">Web Application</span>
           <h3>OrderOrbit</h3>
           <p>Interactive college canteen web application featuring dynamic student menus and server logic.</p>
         </div>
-
-        <!-- Project 2 -->
         <div class="card">
           <span class="card-category">VFX & Editing</span>
           <h3>Cinematic Motion</h3>
           <p>High-fidelity color grading, transition sequences, and narrative audio integration for social media.</p>
         </div>
-
-        <!-- Project 3 -->
         <div class="card">
           <span class="card-category">AI Architecture</span>
           <h3>Skill Horizon AI</h3>
           <p>Conceptual architecture for an AI-based skill evolution and career mapping tool.</p>
         </div>
-
-        <!-- Project 4 -->
         <div class="card">
           <span class="card-category">Software Tool</span>
           <h3>Smart Inventory</h3>
@@ -249,8 +223,6 @@
 
       </div>
     </section>
-
-    <!-- Services / Skills Area -->
     <section>
       <h2 class="section-title">Core Competencies</h2>
       <ul class="skills-list">
