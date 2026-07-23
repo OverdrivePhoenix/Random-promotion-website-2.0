@@ -3,295 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>overdr1ve.phoen1x | Profile</title>
+<title>overdr1ve.phoen1x | Portfolio</title>
 <style>
-  body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    transition: background-color 0.4s ease, color 0.4s ease;
+  /* Base Reset & Variables */
+  :root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #00ffff; /* Solid Cyan */
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
   }
-  
+
   body.light-mode {
-    background-color: #f4f4f9;
-    color: #1a1a1a;
+    --bg-color: #f4f4f9;
+    --text-color: #1a1a1a;
+    --accent-color: #00cccc; /* Slightly darker cyan for readability in light mode */
+    --card-bg: #ffffff;
+    --border-color: #cccccc;
   }
 
-  body.light-mode .site-description {
-    color: #555555;
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  body.light-mode .edits-summary-section {
-    border-top: 1px solid #cccccc;
+  /* Typography */
+  h1, h2, h3 {
+    font-family: Impact, sans-serif;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
   }
 
-  body.light-mode .edits-summary-list li {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #222222;
+  p {
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.8;
   }
 
-  body.light-mode .edits-summary-list li:hover {
-    background-color: rgba(0, 255, 255, 0.3);
+  /* Layout Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
   }
 
+  /* Theme Toggle */
   .theme-toggle {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
-    background: none;
-    border: 2px solid cyan;
-    color: cyan;
-    font-size: 1.5rem;
+    background: var(--bg-color);
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
     cursor: pointer;
-    border-radius: 50%;
     width: 45px;
     height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.2s ease;
+    z-index: 100;
   }
 
   .theme-toggle:hover {
-    transform: rotate(30deg) scale(1.1);
-    background-color: cyan;
-    color: #000000;
+    background: var(--text-color);
+    color: var(--bg-color);
   }
 
-  body.light-mode .theme-toggle {
-    border-color: #1a1a1a;
-    color: #1a1a1a;
-  }
-
-  body.light-mode .theme-toggle:hover {
-    background-color: #1a1a1a;
-    color: #ffffff;
-  }
-
-  .profile-container {
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-    margin-top: 40px;
+  /* Header Section */
+  .header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    border-bottom: 4px solid var(--accent-color);
+    padding-bottom: 40px;
   }
 
   .profile-pic {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
-    margin-bottom: 25px;
-    border: 4px solid cyan;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin-bottom: 20px;
+    border: 4px solid var(--accent-color);
+    filter: grayscale(100%); /* Adds a professional portfolio look */
+    transition: filter 0.3s ease;
   }
 
   .profile-pic:hover {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    filter: grayscale(0%);
   }
 
-  h1 {
-    font-family: Impact, sans-serif;
-    font-size: 3.5rem;
-    margin: 0 0 10px 0;
-    letter-spacing: 2px;
+  .header h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
   }
 
-  .site-description {
-    font-size: 1.1rem;
-    color: #cccccc;
-    margin: 0 0 35px 0;
-    line-height: 1.6;
-    transition: color 0.4s ease;
+  .header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 25px;
   }
 
+  /* Flat Button Design */
   .btn {
     display: inline-block;
-    background-color: cyan;
+    background-color: var(--accent-color);
     color: #000000;
     text-decoration: none;
-    padding: 15px 45px;
-    border-radius: 35px;
+    padding: 15px 30px;
     font-family: Impact, sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 1.2rem;
+    border: 2px solid var(--accent-color);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
   }
 
   .btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.4);
-  }
-
-  .btn:active {
-    transform: translateY(2px) scale(0.98);
-  }
-
-  /* Dropdown Menu Styles */
-  .dropdown {
-    margin-top: 25px;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .dropdown summary {
     background-color: transparent;
-    color: cyan;
-    border: 2px solid cyan;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-family: Impact, sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    list-style: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--accent-color);
+    box-shadow: 6px 6px 0px var(--accent-color); /* Solid shadow, no gradient */
+    transform: translate(-4px, -4px);
   }
 
-  .dropdown summary::-webkit-details-marker {
-    display: none;
+  /* Portfolio Grid */
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--accent-color);
   }
 
-  .dropdown summary:hover {
-    background-color: rgba(0, 255, 255, 0.1);
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
   }
 
-  .dropdown-content {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: rgba(0, 255, 255, 0.05);
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid cyan;
+  .card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    padding: 25px;
+    transition: all 0.2s ease;
   }
 
-  .dropdown-content a {
-    color: #ffffff;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-size: 0.95rem;
-    padding: 12px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    text-align: left;
+  .card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 8px 8px 0px var(--accent-color);
+    transform: translate(-4px, -4px);
   }
 
-  .dropdown-content a:hover {
-    background-color: rgba(0, 255, 255, 0.2);
-    transform: translateX(5px);
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
   }
 
-  body.light-mode .dropdown summary {
-    color: #1a1a1a;
-    border-color: #1a1a1a;
+  .card-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: block;
   }
 
-  body.light-mode .dropdown summary:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  body.light-mode .dropdown-content {
-    background-color: #ffffff;
-    border-color: #cccccc;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  body.light-mode .dropdown-content a {
-    color: #1a1a1a;
-  }
-
-  body.light-mode .dropdown-content a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  /* Summary Section Styles */
-  .edits-summary-section {
-    margin-top: 60px;
-    padding: 30px 20px;
-    border-top: 1px solid #333333;
-    width: 100%;
-    max-width: 550px;
-    text-align: left;
-    transition: border-color 0.4s ease;
-  }
-
-  .edits-summary-title {
-    font-family: Impact, sans-serif;
-    font-size: 2.2rem;
-    color: cyan;
-    margin: 0 0 25px 0;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-
-  .edits-summary-list {
+  /* Skills Summary List */
+  .skills-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.1rem;
-    color: #dddddd;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
-  .edits-summary-list li {
-    margin-bottom: 15px;
-    line-height: 1.5;
-    padding: 15px 20px;
-    background-color: rgba(0, 255, 255, 0.05);
-    border-left: 5px solid cyan;
-    border-radius: 0 8px 8px 0;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    cursor: default;
+  .skills-list li {
+    border: 2px solid var(--border-color);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--card-bg);
+    transition: all 0.2s ease;
   }
 
-  .edits-summary-list li:hover {
-    transform: translateX(12px);
-    background-color: rgba(0, 255, 255, 0.15);
+  .skills-list li:hover {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: #000000;
   }
+
 </style>
 </head>
 <body>
   <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">☀️</button>
   
-  <div class="profile-container">
-    <img src="603117003_17899087137357240_5576847413424402980_n.jpg" alt="Profile Picture" class="profile-pic">
-    
-    <h1>overdr1ve.phoen1x</h1>
-    <p class="site-description">Showcasing cinematic edits, visual effects, and high-quality motion graphics.</p>
-    
-    <a href="https://www.instagram.com/overdr1ve_phoen1x/" class="btn">VIEW INSTAGRAM</a>
+  <div class="container">
+    <!-- Header Area -->
+    <header class="header">
+      <img src="603117003_17899087137357240_5576847413424402980_n.jpg" alt="Profile Picture" class="profile-pic">
+      <h1>overdr1ve.phoen1x</h1>
+      <p>Showcasing cinematic edits, visual effects, and high-quality motion graphics, alongside full-stack technical projects.</p>
+      <a href="https://www.instagram.com/overdr1ve_phoen1x/" class="btn">View Instagram</a>
+    </header>
 
-    <!-- New Interactive Dropdown Menu -->
-    <details class="dropdown">
-      <summary>EXPLORE MORE</summary>
-      <div class="dropdown-content">
-        <a href="#">🌐 Web Dev Projects (OrderOrbit)</a>
-        <a href="#">🎨 AI Cinematic Prompt Gallery</a>
-        <a href="#">🎵 Studio Vibe: I Think They Call This Love (Matthew Ifield Cover)</a>
+    <!-- Portfolio Grid Area -->
+    <section>
+      <h2 class="section-title">Selected Works</h2>
+      <div class="portfolio-grid">
+        
+        <!-- Project 1 -->
+        <div class="card">
+          <span class="card-category">Web Application</span>
+          <h3>OrderOrbit</h3>
+          <p>Interactive college canteen web application featuring dynamic student menus and server logic.</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+          <span class="card-category">VFX & Editing</span>
+          <h3>Cinematic Motion</h3>
+          <p>High-fidelity color grading, transition sequences, and narrative audio integration for social media.</p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+          <span class="card-category">AI Architecture</span>
+          <h3>Skill Horizon AI</h3>
+          <p>Conceptual architecture for an AI-based skill evolution and career mapping tool.</p>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="card">
+          <span class="card-category">Software Tool</span>
+          <h3>Smart Inventory</h3>
+          <p>AI-powered inventory tracker designed to monitor product batch logic and calculate expiry dates.</p>
+        </div>
+
       </div>
-    </details>
-  </div>
+    </section>
 
-  <div class="edits-summary-section">
-    <h2 class="edits-summary-title">SUMMARY OF EDITS</h2>
-    <ul class="edits-summary-list">
-      <li>Cinematic Visual Effects & Motion Graphics</li>
-      <li>Creative Transition Sequences</li>
-      <li>High-Fidelity Color Grading & Correction</li>
-      <li>Narrative Flow & Audio Integration</li>
-    </ul>
+    <!-- Services / Skills Area -->
+    <section>
+      <h2 class="section-title">Core Competencies</h2>
+      <ul class="skills-list">
+        <li>Visual Effects</li>
+        <li>Motion Graphics</li>
+        <li>Color Grading</li>
+        <li>Full-Stack Web Dev</li>
+        <li>AI Generation Tools</li>
+        <li>Server Management</li>
+      </ul>
+    </section>
   </div>
 
   <script>
