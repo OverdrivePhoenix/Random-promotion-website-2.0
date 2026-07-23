@@ -81,6 +81,9 @@
     max-width: 600px;
     width: 100%;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .profile-pic {
@@ -135,6 +138,86 @@
     transform: translateY(2px) scale(0.98);
   }
 
+  /* Dropdown Menu Styles */
+  .dropdown {
+    margin-top: 25px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .dropdown summary {
+    background-color: transparent;
+    color: cyan;
+    border: 2px solid cyan;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: Impact, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .dropdown summary:hover {
+    background-color: rgba(0, 255, 255, 0.1);
+  }
+
+  .dropdown-content {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(0, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid cyan;
+  }
+
+  .dropdown-content a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgba(0, 255, 255, 0.2);
+    transform: translateX(5px);
+  }
+
+  body.light-mode .dropdown summary {
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+  }
+
+  body.light-mode .dropdown summary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  body.light-mode .dropdown-content {
+    background-color: #ffffff;
+    border-color: #cccccc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  body.light-mode .dropdown-content a {
+    color: #1a1a1a;
+  }
+
+  body.light-mode .dropdown-content a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Summary Section Styles */
   .edits-summary-section {
     margin-top: 60px;
     padding: 30px 20px;
@@ -189,6 +272,16 @@
     <p class="site-description">Showcasing cinematic edits, visual effects, and high-quality motion graphics.</p>
     
     <a href="https://www.instagram.com/overdr1ve_phoen1x/" class="btn">VIEW INSTAGRAM</a>
+
+    <!-- New Interactive Dropdown Menu -->
+    <details class="dropdown">
+      <summary>EXPLORE MORE</summary>
+      <div class="dropdown-content">
+        <a href="#">🌐 Web Dev Projects (OrderOrbit)</a>
+        <a href="#">🎨 AI Cinematic Prompt Gallery</a>
+        <a href="#">🎵 Studio Vibe: I Think They Call This Love (Matthew Ifield Cover)</a>
+      </div>
+    </details>
   </div>
 
   <div class="edits-summary-section">
